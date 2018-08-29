@@ -1,0 +1,40 @@
+format_version: 2
+
+pipelines:
+  build :
+    group: HERE
+    environment_variables:
+      ENVIRONMENT: DEV
+    materials:
+      mygit:
+        git: https://github.com/ihormudryy/go-pipeline.git
+        branch: master
+        shallow_clone: true
+    stages:
+      - compile:
+	        clean_workspace: true
+	        jobs:
+	          main:
+	            tasks:
+	              - exec:
+	                  command: bash
+	                  arguments:
+	                  	- script.sh
+	    - package:
+	        clean_workspace: true
+	        jobs:
+	          main:
+	            tasks:
+	              - exec:
+	                  command: bash
+	                  arguments:
+	                  	- script.sh
+	    - publish:
+	        clean_workspace: true
+	        jobs:
+	          main:
+	            tasks:
+	              - exec:
+	                  command: bash
+	                  arguments:
+	                  	- script.sh
