@@ -1,8 +1,8 @@
 format_version: 2
 environments:
-  dev:
+  DEV:
     pipelines:
-      - DEV
+      - build
 pipelines:
   build :
     group: HERE
