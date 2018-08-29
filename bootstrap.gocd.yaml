@@ -1,5 +1,8 @@
 format_version: 2
-
+environments:
+  dev:
+    pipelines:
+      - DEV
 pipelines:
   build :
     group: HERE
@@ -15,6 +18,8 @@ pipelines:
           clean_workspace: true
           jobs:
             main:
+              resources:
+                - testing
               tasks:
                 - exec:
                     command: bash
@@ -24,6 +29,8 @@ pipelines:
           clean_workspace: true
           jobs:
             main:
+              resources:
+                - testing
               tasks:
                 - exec:
                     command: bash
@@ -33,6 +40,8 @@ pipelines:
           clean_workspace: true
           jobs:
             main:
+              resources:
+                - testing
               tasks:
                 - exec:
                     command: bash
