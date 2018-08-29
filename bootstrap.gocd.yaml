@@ -12,29 +12,29 @@ pipelines:
         shallow_clone: true
     stages:
       - compile:
-	        clean_workspace: true
-	        jobs:
-	          main:
-	            tasks:
-	              - exec:
-	                  command: bash
-	                  arguments:
-	                  	- script.sh
-	    - package:
-	        clean_workspace: true
-	        jobs:
-	          main:
-	            tasks:
-	              - exec:
-	                  command: bash
-	                  arguments:
-	                  	- script.sh
-	    - publish:
-	        clean_workspace: true
-	        jobs:
-	          main:
-	            tasks:
-	              - exec:
-	                  command: bash
-	                  arguments:
-	                  	- script.sh
+          clean_workspace: true
+          jobs:
+            main:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - script.sh
+      - package:
+          clean_workspace: true
+          jobs:
+            main:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - script.sh
+      - publish:
+          clean_workspace: true
+          jobs:
+            main:
+              tasks:
+                - exec:
+                    command: bash
+                    arguments:
+                      - script.sh
