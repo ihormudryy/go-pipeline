@@ -1,13 +1,13 @@
 format_version: 2
 environments:
-  DEV:
+  DEVELOPMENT:
     pipelines:
       - build
 pipelines:
   build :
-    group: HERE
+    group: MUDRYY
     environment_variables:
-      ENVIRONMENT: DEV
+      ENVIRONMENT: DEVELOPMENT
     materials:
       mygit:
         git: https://github.com/ihormudryy/go-pipeline.git
