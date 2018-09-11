@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Config
+preferences: {}
+
+clusters:
+- cluster:
+  name: development
+
+users:
+- name: developer
+- name: bot
+
+contexts:
+- context:
+  name: dev-frontend
+- context:
+  name: dev-storage
