@@ -12,10 +12,10 @@ services:
       - /etc/localtime:/etc/localtime
       - ${HOME}/.secrets/gocd:/etc/go
     environment:
-      - ENV_GOCD_PLUGIN_INSTALL_docker-elastic-agents:"https://github.com/gocd-contrib/docker-elastic-agents/releases/download/v1.0.1/docker-elastic-agents$
-      - ENV_GOCD_PLUGIN_INSTALL_docker-registry-artifact-plugin:"https://github.com/gocd/docker-registry-artifact-plugin/releases/download/1.0.0/docker-reg$
-      - ENV_GOCD_PLUGIN_INSTALL_gocd-groovy-dsl-config-plugin:"https://github.com/ketan/gocd-groovy-dsl-config-plugin/releases/download/v0.3.0/dsl-0.3.0-3.$
-      - ENV_GOCD_PLUGIN_INSTALL_kubernetes-elastic-agents:"https://github.com/gocd/kubernetes-elastic-agents/releases/download/v1.0.1/kubernetes-elastic-ag$
+      - ENV_GOCD_PLUGIN_INSTALL_docker-elastic-agents="https://github.com/gocd-contrib/docker-elastic-agents/releases/download/v1.0.2/docker-elastic-agents-1.0.2-143.jar"
+      - ENV_GOCD_PLUGIN_INSTALL_docker-registry-artifact-plugin="https://github.com/gocd/docker-registry-artifact-plugin/releases/download/1.0.0/docker-registry-artifact-plugin-1.0.0-3.jar"
+      - ENV_GOCD_PLUGIN_INSTALL_gocd-groovy-dsl-config-plugin="https://github.com/ketan/gocd-groovy-dsl-config-plugin/releases/download/v0.4.0/dsl-0.4.0-4.jar"
+      - ENV_GOCD_PLUGIN_INSTALL_kubernetes-elastic-agents="https://github.com/gocd/kubernetes-elastic-agents/releases/download/v1.0.2/kubernetes-elastic-agent-1.0.2-108.jar"
         
   gocd-agent:
     image: gocd/gocd-agent-ubuntu-16.04:v18.9.0
