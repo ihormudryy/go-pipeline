@@ -20,7 +20,6 @@ services:
   gocd-agent:
     image: gocd/gocd-agent-ubuntu-16.04:v18.9.0
     restart: unless-stopped
-    depends_on: gocd
     volumes:
       - ${HOME}/workspaces/gocd/agent/ubuntu:/godata 
       - ${HOME}/workspaces/gocd/agent/home:/home/go
