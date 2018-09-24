@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  gocd:
+    image: gocd/gocd-server:v18.9.0
+    restart: unless-stopped
+    ports:
+      - 8153:8153
+      - 8154:8154
+    volumes:
+      - ${HOME}/workspaces/gocd:/godata
+      - /etc/localtime:/etc/localtime
+      - ${HOME}/.secrets/gocd:/etc/go
+    environment:
+      - ENV_GOCD_PLUGIN_INSTALL_docker-elastic-agents="https://github.com/gocd-contrib/docker-elastic-agents/releases/download/v1.0.1/docker-elastic-agents$
+      - ENV_GOCD_PLUGIN_INSTALL_docker-registry-artifact-plugin="https://github.com/gocd/docker-registry-artifact-plugin/releases/download/1.0.0/docker-reg$
+      - ENV_GOCD_PLUGIN_INSTALL_gocd-groovy-dsl-config-plugin="https://github.com/ketan/gocd-groovy-dsl-config-plugin/releases/download/v0.3.0/dsl-0.3.0-3.$
+      - ENV_GOCD_PLUGIN_INSTALL_kubernetes-elastic-agents="https://github.com/gocd/kubernetes-elastic-agents/releases/download/v1.0.1/kubernetes-elastic-ag$
+        
+  gocd-agent:
+    image: gocd/gocd-agent-ubuntu-16.04:v18.9.0
+    restart: unless-stopped
+    depends_on: gocd
+    volumes:
+      - ${HOME}/workspaces/gocd/agent/ubuntu:/godata 
+      - ${HOME}/workspaces/gocd/agent/home:/home/go
